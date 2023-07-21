@@ -20,9 +20,11 @@ if __name__ == "__main__":
     df = reader.read_data(data_path = file_path,
                           file_format = file_type)
     eda_type, target, test_df_path = args.eda_type(list(df.columns))
+    fast_analyzer = FastAnalyzer(df = df, output_path = report_path)
     if test_df_path:
         test_df = reader.read_data(data_path = test_df_path,
                                    file_format = file_type,
                                    test_data = True)[df.columns]
-    fast_analyzer = FastAnalyzer(df = df, output_path = report_path)
-    fast_analyzer.analyze(eda_type = eda_type, test_df = test_df, target = target)
+        fast_analyzer.analyze(eda_type = eda_type, test_df = test_df, target = target)
+    else:
+        fast_analyzer.analyze(eda_type = eda_type, target = target)
