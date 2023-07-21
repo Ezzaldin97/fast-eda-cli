@@ -43,7 +43,7 @@ class CLIArgs:
     def eda_type(self, cols:List[str]) -> Union[str, bool, pd.DataFrame]:
         eda_type = inquirer.select(
             message = "Select EDA Type: ",
-            choices = ["Dataset Analysis", "Target Analysis", "Compare", False],
+            choices = ["Dataset Analysis", "Target Analysis", "Compare"],
             raise_keyboard_interrupt=False,
             mandatory_message="Prompt is mandatory, terminate the program using ctrl-d"
         ).execute()
