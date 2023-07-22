@@ -2,6 +2,13 @@
 
 ## Objective:
 
+Automated Basic Data-Cleaning and Exploratory Data Analysis become curcial and important these days, especially when you start to work on different Data Science/Analysis Project with tight Dead Lines, Using Automated tools to fasten the basic workflow that must be done during development process becomes important.
+
+now alot of tools, softwares and platforms started to create automated applications to help data scientists/analysts to focus on thier target and finish the development process in a very short time.
+
+## Description:
+
+This Project Uses SweetViz API to create Automated EDA Reports with the help of some CLI modules to create a basic CLI Application.
 
 ## Technologies & Prerequisites:
 
