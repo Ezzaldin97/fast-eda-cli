@@ -72,6 +72,7 @@ class DataReader:
         df = DataReader.reduce_memory_usage(df = df)
         df = DataReader.handle_duplicates(df = df)
         if not test_data:
+            start_mem = df.memory_usage().sum() / 1024**2   
             for col in df.columns:
                 col_type = df[col].dtype
                 flag, col_dtype = DataReader.keep(col = col, col_dtype = col_type)
@@ -82,4 +83,6 @@ class DataReader:
                         df[col] = df[col].astype(col_dtype)
                     except:
                         print(f"{colors.red}Invalid Data-Type, Default Data-Type will be Applied{colors.reset_colors}")
+            end_mem = df.memory_usage().sum() / 1024**2
+            print(f'{colors.blue}Mem. usage decreased to {end_mem:5.2f} Mb ({100 * (start_mem - end_mem) / start_mem:.1f}% reduction){colors.reset_colors}')
         return df
